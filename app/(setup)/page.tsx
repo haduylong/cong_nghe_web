@@ -1,6 +1,7 @@
 import { initialProfile } from "@/lib/initial-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
+import { InitialModal } from "@/components/modals/initial-modal";
 
 // từ profile của curr user đưa người đó đến server đầu tiên được tạo
 const SetupPage = async () => {
@@ -19,11 +20,9 @@ const SetupPage = async () => {
     if (server) {
         return redirect(`/server/${server.id}`);
     }
-
+    // nếu chưa tồn tại server thì hiện modal tạo server
     return (
-        <div>
-            set up page
-        </div>
+        <InitialModal />
     );
 }
 
