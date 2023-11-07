@@ -18,7 +18,7 @@ const SetupPage = async () => {
     })
 
     if (server) {
-        return redirect(`/server/${server.id}`);
+        return redirect(`/servers/${server.id}`);
     }
     // nếu chưa tồn tại server thì hiện modal tạo server
     return (
