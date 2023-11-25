@@ -5,6 +5,7 @@ import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { ModalProvider } from '@/components/providers/modal-provider'
+import { SocketProvider } from '@/components/providers/socket-provider'
 
 import { cn } from '@/lib/utils'
 
@@ -33,8 +34,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ModalProvider />
-            {children}
+            <SocketProvider>
+              <ModalProvider />
+              {children}
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>
